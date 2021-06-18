@@ -29,10 +29,10 @@ DATA_SET = {
 doc = DocxTemplate('./docs/contract.docx')
 doc.render(DATA_SET)
 
-destiny = './docs/output.docx'
+destiny = './output/output.docx'
 doc.save(destiny)
 
-p = subprocess.Popen(['libreoffice', '--convert-to', 'pdf', destiny, '--outdir', './docs'], stdin=subprocess.PIPE, stdout=subprocess.PIPE)
+p = subprocess.Popen(['libreoffice', '--convert-to', 'pdf', destiny, '--outdir', './output'], stdin=subprocess.PIPE, stdout=subprocess.PIPE)
 outs, errs = p.communicate()
 
 delta = round((time() - starts) * 1000, 2)
